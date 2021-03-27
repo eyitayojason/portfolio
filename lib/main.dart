@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/splash.dart';
 
 import 'coolors.dart';
 import 'home.dart';
@@ -17,11 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        iconTheme: IconThemeData(color: Colors.white),
         primarySwatch: Colors.orange,
         textTheme: GoogleFonts.poppinsTextTheme(),
         accentColor: Coolors.accentColor,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

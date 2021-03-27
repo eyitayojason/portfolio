@@ -17,48 +17,57 @@ class HeaderScreen extends StatelessWidget {
         .bold
         .make();
     return VxBox(
-      child: VStack(
-        [
-          ZStack(
-            [
-              PictureWidget(),
-              Row(
-                children: [
-                  VStack(
-                    [
-                      if (context.isMobile) 50.heightBox else 10.heightBox,
-                      30.heightBox,
-                      nameWidget,
-                      20.heightBox,
-                      VxBox()
-                          .color(Coolors.accentColor)
-                          .size(60, 10)
-                          .make()
-                          .shimmer(primaryColor: Coolors.accentColor),
-                      30.heightBox,
-                      SocialAccounts(),
-                    ],
-                  ).pSymmetric(h: context.percentWidth * 10, v: 32),
-                  Expanded(
-                    child: VxResponsive(
-                      fallback: const Offstage(),
-                      medium: IntroductionWidget()
-                          .pOnly(left: 120)
-                          .h(context.percentHeight * 60),
-                      large: IntroductionWidget()
-                          .pOnly(left: 120)
-                          .h(context.percentHeight * 60),
+      child: SingleChildScrollView(
+        child: VStack(
+          [
+            ZStack(
+              [
+                PictureWidget(),
+                Row(
+                  children: [
+                    VStack(
+                      [
+                        if (context.isMobile) 20.heightBox else 10.heightBox,
+                        nameWidget,
+                        20.heightBox,
+                        VxBox()
+                            .color(Coolors.accentColor)
+                            .size(60, 10)
+                            .make()
+                            .shimmer(primaryColor: Coolors.accentColor),
+                        20.heightBox,
+                        SocialAccounts(),
+                        20.heightBox,
+                        Text(
+                            "Hello there!😎\n\nI am Johnson, a Software developer specialized \nin creating beautiful, functional mobile and web\napplications using Flutter Framework. I also create \namazing graphics design with Adobe creative suite\napps and i'm a google certified digital marketer.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              height: 1.6,
+                            ))
+                      ],
+                    ).pSymmetric(h: context.percentWidth * 10, v: 32),
+                    Expanded(
+                      child: VxResponsive(
+                        fallback: const Offstage(),
+                        medium: IntroductionWidget()
+                            .pOnly(left: 120)
+                            .h(context.percentHeight * 60),
+                        large: IntroductionWidget()
+                            .pOnly(left: 120)
+                            .h(context.percentHeight * 60),
+                      ),
                     ),
-                  ),
-                ],
-              ).w(context.screenWidth)
-            ],
-          ),
-        ],
+                  ],
+                ).w(context.screenWidth)
+              ],
+            ),
+          ],
+        ),
       ),
     )
         .size(context.screenWidth, context.percentHeight * 60)
-        .color(Coolors.seccondaryColor)
+        .color(Coolors.primaryColor)
         .make();
   }
 }
@@ -104,9 +113,9 @@ class PictureWidget extends StatelessWidget {
         alignment: Alignment.center,
         transform: Matrix4.rotationY(pi),
         child: Image.asset(
-          "assets/images/jason.png",
+          "assets/images/eyitayojason.jpeg",
           alignment: Alignment.bottomCenter,
-          colorBlendMode: BlendMode.screen,
+          colorBlendMode: BlendMode.hardLight,
           color: Coolors.primaryColor,
           height: context.percentHeight * 60,
           width: double.infinity,
@@ -135,40 +144,26 @@ class SocialAccounts extends StatelessWidget {
       }).make(),
       20.widthBox,
       Icon(AntDesign.instagram, color: Colors.white).mdClick(() {
-        launch("https://instagram.com/eyitayojason");
+        launch("https://instagram.com/eyitayo.j");
       }).make(),
       20.widthBox,
-      Icon(AntDesign.linkedin_square, color: Colors.white).mdClick(() {
-        launch("https://twitter.com/eyitayojason");
+      Icon(
+        AntDesign.linkedin_square,
+        color: Colors.white,
+      ).mdClick(() {
+        launch("https://linkedin.com/in/saliu-johnson-17271b1a4");
       }).make(),
       20.widthBox,
       Icon(AntDesign.github, color: Colors.white).mdClick(() {
         launch("https://github.com/eyitayojason");
       }).make(),
       20.widthBox,
+      Icon(
+        AntDesign.dribbble,
+      ).mdClick(() {
+        launch("https://dribbble.com/eyitayojason");
+      }).make(),
+      20.widthBox,
     ].hStack();
-  }
-}
-
-class CustomAppbar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-        backgroundColor: Coolors.primaryColor,
-        leading: Image.asset(
-          "assets/images/mylogo.png",
-          fit: BoxFit.cover,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Drawer();
-            },
-            icon: Icon(
-              Icons.dehaze,
-            ),
-            color: Colors.white,
-          ),
-        ]);
   }
 }
